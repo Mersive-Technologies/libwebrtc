@@ -14,8 +14,12 @@ trigger:
     - push
 
 steps:
-  - name: build
-    image: grantsheehan/rust-windows #TODO: Use dedicated docker image
+  - name: Build
+    image: artifactory.mersive.xyz/docker-public/windows-libwebrtc-builder
+    commands:
+      - ./build_windows.ps1
+  - name: Conan Deploy
+    image: artifactory.mersive.xyz/docker-public/windows-basic
     environment:
       CONAN_NON_INTERACTIVE: 1
       CONAN_REVISIONS_ENABLED: 1
@@ -23,5 +27,4 @@ steps:
       CONAN_PASSWORD:
         from_secret: artifactory-password
     commands:
-      - powershell Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
-      - powershell .\build_windows.ps1
+      - ./deploy_windows.ps1
