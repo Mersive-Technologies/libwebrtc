@@ -12,6 +12,7 @@ trigger:
     - conan_work
   event:
     - push
+    - pull_request
 
 steps:
   - name: Build
