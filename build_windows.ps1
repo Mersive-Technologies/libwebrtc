@@ -12,7 +12,7 @@ ErrorOnExeFailure
 Write-Host "Configuring with CMake"
 mkdir out
 cd out
-cmake .. -G "Visual Studio 15 2017" -DTARGET_CPU=x64
+cmake .. -G "Visual Studio 15 2017" -DTARGET_CPU=x64 -A x64 -T host=x64
 ErrorOnExeFailure
 
 Write-Host "Performing Build"
