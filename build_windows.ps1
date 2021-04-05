@@ -12,9 +12,9 @@ ErrorOnExeFailure
 Write-Host "Configuring with CMake"
 mkdir out
 cd out
-cmake .. -G "Visual Studio 15 2017" -DTARGET_CPU=x86
+cmake .. -G "Visual Studio 15 2017" -DTARGET_CPU=x64
 ErrorOnExeFailure
 
 Write-Host "Performing Build"
-msbuild libwebrtc.sln /p:Configuration=Release /p:Platform=Win32 /target:ALL_BUILD
+msbuild libwebrtc.sln /p:Configuration=Release /p:Platform=x64 /target:ALL_BUILD
 ErrorOnExeFailure

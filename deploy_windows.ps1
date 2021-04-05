@@ -18,7 +18,7 @@ Write-Host "libwebrtcVersion=[$libwebrtcVersion]"
 
 Write-Host "Creating conan package from recipe"
 ((Get-Content -Path conandata.yml) -Replace 'replace_with_commit_hash', $commitHash) | Set-Content -Path conandata.yml
-conan export-pkg . "libwebrtc/${libwebrtcVersion}@" -s arch=x86
+conan export-pkg . "libwebrtc/${libwebrtcVersion}@" -s arch=x64
 ErrorOnExeFailure
 
 Write-Host "Deploying to Artifactory"
