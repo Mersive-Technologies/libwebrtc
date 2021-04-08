@@ -20,6 +20,7 @@ msbuild libwebrtc.sln /p:Configuration=Release /p:Platform=Win32 /target:ALL_BUI
 ErrorOnExeFailure
 
 Write-Host "Configuring with CMake"
+cd ..
 mkdir out64
 cd out64
 cmake .. -G "Visual Studio 15 2017" -DTARGET_CPU=x64 -A x64 -T host=x64
